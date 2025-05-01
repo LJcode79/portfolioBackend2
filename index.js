@@ -13,7 +13,7 @@ app.use(
   })
 );
 
-app.options('*', cors());
+app.options('https://lawrencejohn.netlify.app', cors());
 
 app.use(express.json());
 app.use("/", router);
