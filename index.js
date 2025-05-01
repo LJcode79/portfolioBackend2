@@ -7,13 +7,13 @@ const nodemailer = require("nodemailer");
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: "https://lawrencejohn.netlify.app",
     methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"], // Specify allowed methods
     // origin: "http://localhost:3000",
   })
 );
 
-app.options('https://lawrencejohn.netlify.app', cors());
+app.options("*", cors());
 
 app.use(express.json());
 app.use("/", router);
