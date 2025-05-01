@@ -41,6 +41,10 @@ contactEmail.verify((error) => {
 });
 
 router.post("/contact", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "https://lawrencejohn.netlify.app");
+  res.header("Access-Control-Allow-Methods", "POST");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+
   const name = req.body.firstName + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;
