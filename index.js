@@ -8,9 +8,9 @@ const app = express();
 app.use(
   cors({
     origin: "https://lawrencejohn.netlify.app",
-    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Specify allowed methods
-    // credentials: true, // If you need to send cookies
-    // allowedHeaders: "Content-Type, Authorization",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Specify allowed methods
+    credentials: true, // If you need to send cookies
+    allowedHeaders: "Content-Type, Authorization",
     // origin: "http://localhost:3000",
   })
 );
