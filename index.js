@@ -10,10 +10,20 @@ app.use(
     origin: "https://lawrencejohn.netlify.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Specify allowed methods
     credentials: true, // If you need to send cookies
-    allowedHeaders: "Content-Type, Authorization",
+    allowedHeaders: "Content-Type, Authorization, X-Requested-With",
     // origin: "http://localhost:3000",
   })
 );
+
+app.options('*', cors());
+
+app.options('/contact', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://lawrencejohn.netlify.app');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(200).send();
+});
+
 app.use(express.json());
 app.use("/", router);
 // app.listen(5000, () => console.log("Server Running"));
