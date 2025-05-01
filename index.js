@@ -9,8 +9,6 @@ app.use(
   cors({
     origin: "*",
     methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"], // Specify allowed methods
-    credentials: true, // If you need to send cookies
-    allowedHeaders: "Content-Type, Authorization, X-Requested-With",
     // origin: "http://localhost:3000",
   })
 );
@@ -41,10 +39,6 @@ contactEmail.verify((error) => {
 });
 
 router.post("/contact", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "https://lawrencejohn.netlify.app");
-  res.header("Access-Control-Allow-Methods", "POST");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-
   const name = req.body.firstName + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;
